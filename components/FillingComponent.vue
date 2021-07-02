@@ -6,8 +6,8 @@
           <div class="products__cards">
             <div
               class="products__card filling-card"
-              @mouseenter="showFillingInfo($event)" 
-              @mouseleave="showFillingInfo($event)"
+              @mouseover="showFillingInfo($event)" 
+              @mouseout="showFillingInfo($event)"
               v-for="filling in fillings"
               :key="filling.id"
             >
@@ -96,13 +96,24 @@ export default {
             this.currentPage = 1;
             this.fillings = [];
           }
-          const { data, headers } = await this.$axios.get(
-            `/api/filling?category_filter=${this.currentCategory}&per-page=${this.addMoreProducts}&page=${this.currentPage}${this.currentCategory !== null ? '&sort=price' : ''}`
+          //axios implamenation (safari  has cors issue)
+          // const { data, headers } = await this.$axios.get(
+          //   `/api/filling?category_filter=${this.currentCategory}&per-page=${this.addMoreProducts}&page=${this.currentPage}${this.currentCategory !== null ? '&sort=price' : ''}`
+          // );
+          // const pageCount = headers["x-pagination-page-count"];
+          // if (this.currentPage <= pageCount) {
+          //   this.fillings = this.fillings.concat(data);
+          // }
+
+          const result = await fetch(
+            `${this.$nuxt.context.env.baseUrl}/api/filling?category_filter=${this.currentCategory}&per-page=${this.addMoreProducts}&page=${this.currentPage}${this.currentCategory !== null ? '&sort=price' : ''}`
           );
-          const pageCount = headers["x-pagination-page-count"];
+          const data = await result.json();
+          const pageCount = result.headers.get('x-pagination-page-count')
           if (this.currentPage <= pageCount) {
             this.fillings = this.fillings.concat(data);
           }
+
         }
       } catch (error) {
         console.log(error.message);
@@ -135,8 +146,8 @@ export default {
         return 1;
       }
     },
-    showFillingInfo($event){
-      const activeFillingInfo = $event.target.firstElementChild.lastElementChild;
+    showFillingInfo(event){
+      const activeFillingInfo = event.currentTarget.firstElementChild.lastElementChild;
       activeFillingInfo.classList.toggle('active-view');
     },
   },

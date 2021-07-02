@@ -35,11 +35,11 @@ export default {
     { src: '~~/plugins/vue-modal.js', mode: 'client' },
   ],
 
-  // server: {
-  //   port: 3000,
-  //   host: '192.168.0.101',
-  //   timing: false
-  // },
+  server: {
+    port: 3000,
+    host: '192.168.0.102',
+    timing: false
+  },
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 

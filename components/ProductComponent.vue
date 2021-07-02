@@ -81,6 +81,7 @@ export default {
   },
   async fetch() {
     try {
+      // this.products = await this.$axios.$get(`/api/product?type_filter=${this.typeId}&per-page=6`)
       this.products = await fetch(`${this.$nuxt.context.env.baseUrl}/api/product?type_filter=${this.typeId}&per-page=6`)
       .then(res => res.json());
     }catch (error) {
@@ -121,13 +122,27 @@ export default {
           this.currentPage = 1;
           this.products = [];
         } 
-        const {data, headers} = await this.$axios.get(
-          `/api/product?type_filter=${this.typeId}&category_filter=${this.currentCategory}&per-page=${this.addMoreProducts}&page=${this.currentPage}`
-        )
-        const pageCount = headers['x-pagination-page-count']
+
+        // with axios (safari don't work, cors error)
+        // const {data, headers} = await this.$axios.get(
+        //   `/api/product?type_filter=${this.typeId}&category_filter=${this.currentCategory}&per-page=${this.addMoreProducts}&page=${this.currentPage}`
+        // )
+
+        //  const pageCount = headers['x-pagination-page-count']
+        // if(this.currentPage <= pageCount){
+        //   this.products = this.products.concat(data);
+        // }
+
+        const result = await fetch(
+          `${this.$nuxt.context.env.baseUrl}/api/product?type_filter=${this.typeId}&category_filter=${this.currentCategory}&per-page=${this.addMoreProducts}&page=${this.currentPage}`
+        ).then(res => res);
+        const data = await result.json();
+        const pageCount = result.headers.get('x-pagination-page-count')
+        console.log(result)
         if(this.currentPage <= pageCount){
-          this.products = this.products.concat(data);
+           this.products = this.products.concat(data);
         }
+       
       }catch (error) {
         console.log(error.message);
         const isError = true;

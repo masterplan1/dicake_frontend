@@ -78,7 +78,7 @@ export default {
       addMoreProducts: 6,
       currentPage: 1,
       currentCategory: null,
-      title: 'Начинки тортиків та капкейків - Трюфель'
+      title: 'Начинки тортиків та капкейків - Трюфель',
     };
   },
   head() {
@@ -93,10 +93,16 @@ export default {
       ]
     }
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, env }) {
     try {
-      const fillings = await $axios.$get(`/api/filling?per-page=6`);
-      return { fillings };
+      //for axios implementation
+      // const fillings = await $axios.$get(`/api/filling?per-page=6`);
+      // return { fillings };
+    const fillings = await fetch(`${env.baseUrl}/api/filling?per-page=6`)
+    .then(res => res.json());
+    
+    return { fillings }
+
     } catch (error) {
       console.log(error.message);
       const isError = true;
@@ -121,13 +127,24 @@ export default {
             this.currentPage = 1;
             this.fillings = [];
           }
-          const { data, headers } = await this.$axios.get(
-            `/api/filling?category_filter=${this.currentCategory}&per-page=${this.addMoreProducts}&page=${this.currentPage}${this.currentCategory !== null ? '&sort=price' : ''}`
-          );
-          const pageCount = headers["x-pagination-page-count"];
+          // const { data, headers } = await this.$axios.get(
+          //   `/api/filling?category_filter=${this.currentCategory}&per-page=${this.addMoreProducts}&page=${this.currentPage}${this.currentCategory !== null ? '&sort=price' : ''}`
+          // );
+          // const pageCount = headers["x-pagination-page-count"];
+          // if (this.currentPage <= pageCount) {
+          //   this.fillings = this.fillings.concat(data);
+          // }
+
+        const result = await fetch(
+          `${this.$nuxt.context.env.baseUrl}/api/filling?category_filter=${this.currentCategory}&per-page=${this.addMoreProducts}&page=${this.currentPage}${this.currentCategory !== null ? '&sort=price' : ''}`
+          ).then(res => res);
+          const data = await result.json();
+          const pageCount = result.headers.get('x-pagination-page-count')
+          console.log(pageCount)
           if (this.currentPage <= pageCount) {
             this.fillings = this.fillings.concat(data);
           }
+
         }
       } catch (error) {
         console.log(error.message);
@@ -139,9 +156,17 @@ export default {
     getAmountName(catId){
       return catId === 4 ? 'шт' : 'кг';
     },
-    showFillingInfo($event){
-      const activeFillingInfo = $event.target.firstElementChild.lastElementChild;
-      activeFillingInfo.classList.toggle('active-view');
+    
+    // showFillingInfo($event){
+    //   const activeFillingInfo = $event.target.firstElementChild.lastElementChild;
+    //   activeFillingInfo.classList.toggle('active-view');
+    // },
+    showFillingInfo(event){
+      if(event.currentTarget.firstElementChild){
+        const activeFillingInfo = event.currentTarget.firstElementChild.lastElementChild;
+        activeFillingInfo.classList.toggle('active-view');
+      }
+      
     },
   },
 };

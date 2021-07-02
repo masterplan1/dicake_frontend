@@ -86,6 +86,7 @@
 
 <script>
 import {mapState} from 'vuex';
+import smoothscroll from 'smoothscroll-polyfill';
 export default {
   data(){
     return {
@@ -128,6 +129,8 @@ export default {
     }
   },
   mounted(){
+    smoothscroll.polyfill(); // polyfill for safari scrolling smooth
+    
     this.subMenu = document.querySelector('.header__sub-menu');
     this.innerWidth = window.innerWidth;
 
