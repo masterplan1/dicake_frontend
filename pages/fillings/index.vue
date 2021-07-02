@@ -20,8 +20,8 @@
           <div class="products__cards">
             <div
               class="products__card filling-card"
-              @mouseenter="showFillingInfo($event)" 
-              @mouseleave="showFillingInfo($event)"
+              @mouseover="showFillingInfo($event)" 
+              @mouseout="showFillingInfo($event)"
               v-for="filling in fillings"
               :key="filling.id"
             >
@@ -162,6 +162,7 @@ export default {
     //   activeFillingInfo.classList.toggle('active-view');
     // },
     showFillingInfo(event){
+      console.log(event.currentTarget)
       if(event.currentTarget.firstElementChild){
         const activeFillingInfo = event.currentTarget.firstElementChild.lastElementChild;
         activeFillingInfo.classList.toggle('active-view');
