@@ -161,10 +161,17 @@ export default {
     calculatePrice() {
       return this.total_price * this.item_counter;
     },
+    // async fetchFillings() {
+    //   this.fillings = await this.$axios.$get(
+    //     `${this.$nuxt.context.env.baseUrl}/api/filling?category_filter=${this.number}&status_filter=candybar`
+    //   );
+    //   this.fillingId = this.fillings[0].id;
+    // },this.comments = await fetch(`${this.$nuxt.context.env.baseUrl}/api/comment/index`)
+        //.then(res => res.json());
     async fetchFillings() {
-      this.fillings = await this.$axios.$get(
+      this.fillings = await fetch(
         `${this.$nuxt.context.env.baseUrl}/api/filling?category_filter=${this.number}&status_filter=candybar`
-      );
+      ).then(res => res.json());
       this.fillingId = this.fillings[0].id;
     },
     addToCart() {
