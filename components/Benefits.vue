@@ -34,8 +34,7 @@
           <div class="benefits__card sm-items benefits__card-margin">
             <h2 class="benefits__card-title box-item">Доставка</h2>
             <p class="benefits__desc">
-              Самовивіз або віддправка за тарифами таксі. Можлива доставка
-              весільного торта.
+              Безкоштовна доставка Обухів/Українка від 1000 грн.
             </p>
           </div>
         </div>

@@ -2,7 +2,7 @@
   <!-- wellcome start -->
     <section class="wellcome">
       <div class="wellcome__title-wrapper">
-        <h1 class="wellcome__title">Вітаю тебе у майстерні</h1>
+        <h1 class="wellcome__title">Вітаємо тебе у майстерні</h1>
         <div class="wellcome__logo">
           <p class="wellcome__logo-text">tru</p>
           <img
@@ -23,7 +23,7 @@
           <p class="wellcome__description">
             Привіт!<br /><br />
 
-            На цій сторінці ми разом створимо ескіз твого тортика, і ми втілимо
+            На цій сторінці ми разом створимо ескіз твого тортика і втілимо
             твою солодку мрію<br class="wellcome__description-br" />
             в реальність.<br /><br />
 
