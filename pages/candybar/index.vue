@@ -10,7 +10,7 @@
       </div>
      
       <div class="products__candybar-order-notice">
-          <p class="products__candybar-order-desc">Замовлення Candy Bar - мінімум за 7 днів.</p>
+          <p class="products__candybar-order-desc">Замовлення Candy Bar - мінімум за 5 днів.</p>
       </div>
       <candybarMain />
     </div>

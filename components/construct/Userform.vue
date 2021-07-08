@@ -72,7 +72,7 @@
 import {helpers, required, minLength} from 'vuelidate/lib/validators';
 import {mask} from 'vue-the-mask';
 // import Datepicker from 'vuejs-datepicker';
-const alpha = helpers.regex('alpha', /^[a-zA-Zа-яёіА-ЯЁІ]*$/);
+const alpha = helpers.regex('alpha', /^[a-zA-Zа-яёіА-ЯЁІ ]*$/);
 const numeric = helpers.regex('numericq', /^[0-9\(\) ]*$/);
 
 export default {

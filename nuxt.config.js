@@ -35,28 +35,28 @@ export default {
     { src: '~~/plugins/vue-modal.js', mode: 'client' },
   ],
 
-  server: {
-    port: 3000,
-    host: '192.168.0.102',
-    timing: false
-  },
+  // server: {
+  //   port: 3000,
+  //   host: '192.168.0.102',
+  //   timing: false
+  // },
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     '@nuxtjs/moment',
-    '@nuxtjs/pwa'
+    // '@nuxtjs/pwa'
   ],
 
-  pwa: {
-    manifest: {
-      name: process.env.BASE_URL,
-      lang: 'ua',
-      theme_color: '#000000',
-      description: process.env.BASE_URL
-    }
-  },
+  // pwa: {
+  //   manifest: {
+  //     name: process.env.BASE_URL,
+  //     lang: 'ua',
+  //     theme_color: '#000000',
+  //     description: process.env.BASE_URL
+  //   }
+  // },
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
