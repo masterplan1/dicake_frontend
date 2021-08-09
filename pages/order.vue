@@ -141,6 +141,7 @@
 import {mapGetters, mapState, mapActions} from 'vuex';
 import {helpers, required, minLength} from 'vuelidate/lib/validators';
 import {mask} from 'vue-the-mask';
+import moment from 'moment';
 
 const alpha = helpers.regex('alpha', /^[a-zA-Zа-яёіА-ЯЁІ ]*$/);
 const numeric = helpers.regex('numeric', /^[0-9\(\) ]*$/);
@@ -256,7 +257,7 @@ export default {
     },
     dateCheck(){
       this.$v.userForm.date.$touch()
-      this.userForm.date = this.$moment(this.orderDate).format('DD.MM.YY');
+      this.userForm.date = moment(this.orderDate).format('DD.MM.YY');
       this.checkValidation();
     },
     checkValidation(){

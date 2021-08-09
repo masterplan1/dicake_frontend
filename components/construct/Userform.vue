@@ -71,6 +71,7 @@
 // v-model="formData.date"
 import {helpers, required, minLength} from 'vuelidate/lib/validators';
 import {mask} from 'vue-the-mask';
+import moment from 'moment';
 // import Datepicker from 'vuejs-datepicker';
 const alpha = helpers.regex('alpha', /^[a-zA-Zа-яёіА-ЯЁІ ]*$/);
 const numeric = helpers.regex('numericq', /^[0-9\(\) ]*$/);
@@ -120,7 +121,7 @@ export default {
     },
     dateCheck(){
       this.$v.formData.date.$touch()
-      this.formData.date = this.$moment(this.dataInput).format('DD.MM.YY');
+      this.formData.date = moment(this.dataInput).format('DD.MM.YY');
       this.checkValidation();
     },
     checkValidation(){

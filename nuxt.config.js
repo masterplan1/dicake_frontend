@@ -44,10 +44,10 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-  buildModules: [
-    '@nuxtjs/moment',
-    // '@nuxtjs/pwa'
-  ],
+  // buildModules: [
+  //   '@nuxtjs/moment',
+  //   '@nuxtjs/pwa'
+  // ],
 
   // pwa: {
   //   manifest: {
