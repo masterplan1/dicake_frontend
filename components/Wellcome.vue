@@ -9,6 +9,8 @@
             src="images/svg/cake-wellcome-icon.svg"
             alt="cake-logo"
             class="wellcome__logo-pic"
+            width="46px"
+            height="66px"
           />
           <p class="wellcome__logo-text">fel</p>
         </div>

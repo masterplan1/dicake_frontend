@@ -7,6 +7,8 @@
           src="~/static/images/svg/cake-logo.svg"
           alt="cake-logo"
           class="footer__logo-pic item-logo-pic"
+          width="42px"
+          height="42px"
         />
         <p class="footer__logo-text item-logo-text">fel</p>
       </div>
@@ -20,6 +22,8 @@
               src="~/static/images/svg/instagram-footer-icon.svg"
               alt="instagram-pic"
               class="footer__instagram-pic"
+              width="40px"
+              height="40px"
             />
           </a>
           
@@ -27,11 +31,15 @@
             src="~/static/images/svg/telegram-footer-icon.svg"
             alt="telegram-pic"
             class="footer__telgram-pic"
+            width="40px"
+            height="40px"
           />
           <img
             src="~/static/images/svg/viber-footer-icon.svg"
             alt="viber-pic"
             class="footer__viber-pic"
+            width="40px"
+            height="40px"
           />
         </div>
       </div>

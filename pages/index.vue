@@ -13,8 +13,8 @@
         <!-- <a href="#!" class="intro__link">Замовити</a> -->
       </div>
       <div class="intro__phone-wrapper">
-        <img src="images/svg/telegram-icon.svg" alt="telegram" class="intro__telegram-icon phone" />
-        <img  src="images/svg/viber-icon.svg" alt="viber" class="intro__viber-icon phone"/>
+        <img src="images/svg/telegram-icon.svg" alt="telegram" width="40px" height="40px" class="intro__telegram-icon phone" />
+        <img  src="images/svg/viber-icon.svg" alt="viber" width="40px" height="40px" class="intro__viber-icon phone"/>
         <div class="phone-wrapper">
           <span class="intro__phone-number phone"> +38 (093) 497-86-46</span>
           <span class="intro__phone-number phone"> +38 (068) 566-77-87</span>
@@ -26,6 +26,8 @@
           alt="down-button"
           class="intro__button-pic"
           @click="pageDown"
+          width="21px"
+          height="11px"
         />
       </a>
     </section>
@@ -79,9 +81,9 @@ export default {
     pageDown(){
       window.scrollTo({top: 570, behavior: 'smooth'})
     }
-  }
+  },
   // mounted(){
-  //   this.$store.dispatch('cart/REMOVE_ITEMS_FROM_CART');
+  //   console.log(this.$config.baseUrl)
   // }
 };
 </script>

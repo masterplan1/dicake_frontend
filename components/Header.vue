@@ -12,6 +12,8 @@
           src="~/static/images/svg/cake-logo.svg"
           alt="cake-logo"
           class="header__logo-pic item-logo-pic"
+          width="46px"
+          height="60px"
         />
         <p class="header__logo-text item-logo-text">fel</p>
       </div>
