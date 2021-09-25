@@ -380,7 +380,7 @@ export default {
     },
     async makeOrder(){
       const order_data = {
-        prduct_id: this.order_data.cake_decoration,
+        product_id: this.order_data.cake_decoration,
         filling_id: this.order_data.cake_filling,
         weight: this.order_data.cake_weight,
         total_price:  this.order_data.cake_price,
