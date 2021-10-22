@@ -12,7 +12,7 @@
       <div class="products__content-card muss-desc-card">
           <h3 class="card__title" :class="{'card__title-strobbery': isStrobbery}">{{item.name}}</h3>
           <span class="products__card-order card__description">Мін. замовлення - {{item.min_quantity}} шт. </span>
-          <span class="products__card-price card__price">{{item.price}} грн/кг</span>
+          <span class="products__card-price card__price">{{item.price}} грн/шт</span>
           <candybarButton :item="item" :number="number" />
       </div>
   </div>
