@@ -9,8 +9,9 @@
             <template v-if="item.item">
                 <h3 class="candybar__toppers-title">{{item.item.name}}</h3>
                 <img :src="$nuxt.context.env.baseUrl + '/img/' + item.item.img" alt="cakepops" class="candybar__toppers-image">
-                <span class="candybar__toppers-desc">В стилі свята.</span>
-                <span class="products__card-price card__price">{{item.item.price}} грн/шт</span>
+                <span class="candybar__toppers-desc fifth-item-min-quantity">В стилі свята.</span>
+                <span class="products__card-order card__description fifth-item-min-quantity">Мін. замовлення - {{item.item.min_quantity}} шт. </span>
+                <span class="products__card-price card__price fifth-item-price">{{item.item.price}} грн/шт</span>
                 <candybarButton :item="item.item" :number="item.id" />       
             </template>
                                    
@@ -57,6 +58,12 @@ export default {
     width: 220px;
     height: 292px;
 } */
+span.fifth-item-min-quantity{
+  margin-bottom: 10px;
+}
+span.fifth-item-price{
+  margin-bottom: 20px;
+}
 .candybar__toppers-title{
     font-family: Caveat;
     font-size: 50px;
@@ -99,6 +106,7 @@ export default {
 .cards-twelve1::before{
     left: 76px;
 }
+
 @media screen and (max-width: 970px){
   .candybar__toppers-content{
     justify-content: space-around;
